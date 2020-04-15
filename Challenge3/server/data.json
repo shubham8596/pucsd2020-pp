@@ -1,35 +1,47 @@
 {
-  "users": [
+  "user": [
     {
-      "first_name": "Shubham",
-      "last_name": "Jadhav",
-      "email": "spj123@gmail.com",
-      "password": "zxcvbnm",
-      "contact_number": "9128374651",
-      "id": 1
-    },
-    {
-      "first_name": "Pratik",
-      "last_name": "Raka",
-      "email": "sdf@gmail.com",
       "password": "asdfghjkl",
-      "contact_number": "9876543210",
-      "id": 2
+      "deleted": 0,
+      "last_update": "1970-01-01",
+      "updated_by": 1,
+      "last_name": "Jsssss",
+      "id": 1,
+      "creation_date": "1970-01-01",
+      "first_name": "Shubham",
+      "email": "sdfg@gmail.com",
+      "contact_number": "1234567890"
     },
     {
-      "first_name": "Tappu",
-      "last_name": "Gada",
-      "email": "tappu123@gmail.com",
       "password": "zxcvbnm",
-      "contact_number": "9120394738",
-      "id": 3
+      "deleted": 0,
+      "last_update": "1970-01-01",
+      "updated_by": 1,
+      "last_name": "Patil",
+      "id": 2,
+      "creation_date": "1970-01-01",
+      "first_name": "Pratik",
+      "email": "asdf@gmail.com",
+      "contact_number": "1111111111"
     },
     {
-      "first_name": "Sankalp",
-      "last_name": "Patil",
-      "email": "san888@gmail.com",
-      "password": "qwertyuiop",
-      "contact_number": "7654321234",
+      "password": "asdfghjkl",
+      "deleted": 0,
+      "last_update": "1970-01-01",
+      "updated_by": 1,
+      "last_name": "patil",
+      "id": 3,
+      "creation_date": "1970-01-01",
+      "first_name": "sankalp",
+      "email": "sandy123@gmail.com",
+      "contact_number": "9999999999"
+    },
+    {
+      "first_name": "asdfghj",
+      "last_name": "sdfgh",
+      "email": "sphsdfg@gmail.com",
+      "password": "zxcvbnm",
+      "contact_number": "2222222222",
       "id": 4
     }
   ]

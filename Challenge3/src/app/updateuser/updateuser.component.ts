@@ -6,8 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router'
 
 export interface DialogData {
-  id: string;
-  photo: string;
+  id: number;
   first_name: string;
   last_name: string;
   email: string;
@@ -64,16 +63,17 @@ this.createFormValidations();
 
    onUpdateClick() {
     let userData = {
+      "id": this.updateForm.value.id,
       "first_name": this.updateForm.value.firstname,
       "last_name": this.updateForm.value.lastname,
       "email": this.updateForm.value.email,
       "password": this.updateForm.value.password,
       "contact_number": this.updateForm.value.contactNumber
     };
-    this.dataService.updateUser(userData, this.data.id).subscribe(data => {
-      this.openSnackBar("Successfully Updated", " 🎉")
-      this.dialogRef.close();
-    })
+    // this.dataService.updateUser(userData,this.updateForm.value.id).subscribe(data => {
+    //   this.openSnackBar("Successfully Updated", " 🎉")
+    //   this.dialogRef.close();
+    // })
   } 
 
   

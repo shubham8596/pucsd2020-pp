@@ -25,6 +25,7 @@ export class DeleteComponent implements OnInit {
   }
 
   deleteProduct(uID) {
+    console.log("user id "+uID);
     this.dataService.deleteProduct(uID).subscribe(data => {
    
       this.openSnackBar("User Record Deleted Successfully", " ");
@@ -46,8 +47,8 @@ export class DeleteComponent implements OnInit {
     })
   }
 
-  getById(id) {
-    if (id.trim() == "") {
+  getById(id : number) {
+    if (id < 0) {
       this.openSnackBar("Please Enter User Id ","👤")
     }
     else {

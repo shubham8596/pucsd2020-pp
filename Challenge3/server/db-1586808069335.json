@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "first_name": "Shubham",
+      "last_name": "Jadhav",
+      "email": "spj123@gmail.com",
+      "password": "zxcvbnm",
+      "contact_number": "9128374651",
+      "id": 1
+    },
+    {
+      "first_name": "Pratik",
+      "last_name": "Raka",
+      "email": "sdf@gmail.com",
+      "password": "asdfghjkl",
+      "contact_number": "9876543210",
+      "id": 2
+    },
+    {
+      "first_name": "jetha",
+      "last_name": "Gada",
+      "email": "tappu123@gmail.com",
+      "password": "zxcvbnm",
+      "contact_number": "9120394738",
+      "id": 3
+    }
+  ]
+}

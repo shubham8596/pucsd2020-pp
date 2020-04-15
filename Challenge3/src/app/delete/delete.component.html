@@ -29,12 +29,12 @@
                         <th> Delete</th>
                     </tr>
                      <tr>
-                        <td align="center">{{user.id}}</td>
-                        <td align="center">{{user.first_name}} </td>
-                        <td align="center">{{user.last_name}} </td>
-                        <td align="center">{{user.email}}  </td>
-                        <td align="center">{{user.contact_number}} </td>
-                       <td align="center"><button style="margin-left: 30px;" mat-raised-button color="primary" matSuffix aria-label="Clear" (click)="deleteProduct(user.id)"> Delete
+                        <td align="center">{{user.data['id']}} </td>
+                        <td align="center">{{user.data["first_name"]}} </td>
+                        <td align="center">{{user.data["last_name"]}} </td>
+                        <td align="center">{{user.data["email"]}} </td>
+                        <td align="center">{{user.data["contact_number"]}} </td>
+                       <td align="center"><button style="margin-left: 30px;" mat-raised-button color="primary" matSuffix aria-label="Clear" (click)="deleteProduct(user.data['id'])"> Delete
                         </button>  </td>
                      </tr>
                   </table>

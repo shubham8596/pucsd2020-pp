@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, NavigationEnd } from "@angular/router";
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
-import { UpdateuserComponent  } from '../updateuser/updateuser.component';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-update',
@@ -22,22 +22,28 @@ export class UpdateComponent implements OnInit {
     public dialog: MatDialog,
     private router: Router) { }
 
+    updateForm: FormGroup;
+
     navigationSubscription;
-  users = [];
-
+  users  = [];
+    //data =[];
     destroy$: Subject<boolean> = new Subject<boolean>();
+    
 
-  openDialog(user) {
+    openDialog(user,id,firstname,lastname,email,contactNumber) {
 
-    const dialogRef = this.dialog.open(UpdateuserComponent, {
-      data: user
-    });
+      id : user.data['id'],
+      firstname="daud",
+      lastname= user.data['last_name'],
+      email= user.data['email'],
+      contactNumber= user.data['contact_number'],
+     // user.data['first_name']="madhav"
+      //console.log("firstname : "+ user.data['first_name']);
+      this.dataService.updateById(user,id,firstname,lastname,email,contactNumber).subscribe(data => {
+        this.openSnackBar("Successfully Updated", " 🎉")
+        //this.dialogRef.close();
+      })
 
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.loadUsers();
-      console.log(`Dialog result: ${result}`);
-    });
   }
 
   loadUsers() {
@@ -46,17 +52,19 @@ export class UpdateComponent implements OnInit {
     })
   }
 
-  getById(id) {
-    if (id.trim() == "") {
+  
+
+  getById(id : number) {
+    if (id < 0) {
       this.openSnackBar("Please Enter User id ","👤")
     }
     else {
       this.dataService.getById(id).subscribe((data: any[]) => {
-        console.log(Object.keys(data).length)
+        console.log(Object.values(data).length)
         var stringData = '[' + JSON.stringify(data) + ']'
         var parseData = JSON.parse(stringData)
         this.users = parseData;
-      
+        //console.log(data)
           this.openSnackBar("User Exist","😊")
          // this.loadUsers();
       },
@@ -86,6 +94,28 @@ export class UpdateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    let userData = {
+      "first_name": this.updateForm.value.firstname,
+      "last_name": this.updateForm.value.lastname,
+      "email": this.updateForm.value.email,
+      "password": this.updateForm.value.password,
+      "contact_number": this.updateForm.value.contactNumber
+    };
+    console.log("hello"+this.updateForm.value.id)
+      
+
+    if (this.updateForm.invalid) {
+
+      return;
+    }
+    console.log(userData)
+    this.dataService.insertUser(userData).subscribe(data => {
+      this.openSnackBar("New Record Added Successfully"," ")
+    })
+    this.updateForm.reset();
   }
 
 }

@@ -1,6 +1,6 @@
 <br>
 <div>
-    <span style="font-size: 30px;margin-left: 550px;"><b>All Records</b></span><br><br>
+    <div style="font-size: 17px;margin-left: 5px; text-align: center;"><i><b>Rest API Implementation</b></i></div><br>
     <mat-grid-list cols="1" rowHeight="50px">
        
                 <table border="260px" style="border-color:lightgrey;">
@@ -10,7 +10,7 @@
                     <col width="150px">
                     <col width="150px">
                    
-                    <tr>
+                    <!-- <tr>
                         <mat-grid-tile>
                             <th style="width: 150px;" align="center">User Id</th>
                             <th style="width: 150px;" align="center">First Name</th>
@@ -20,14 +20,14 @@
                         </mat-grid-tile>
                     </tr>
                     <tr>
-                        <mat-grid-tile *ngFor="let user of users">
-                            <td style="width: 150px;" align="center">{{user.id}}</td>
-                            <td style="width: 150px;" align="center">{{user.first_name}} </td>
-                            <td style="width: 150px;" align="center">{{user.last_name}} </td>
-                            <td style="width: 150px;" align="center">{{user.email}}  </td>
-                            <td style="width: 150px;" align="center">{{user.contact_number}} </td>
+                        <mat-grid-tile *ngFor="let user of users"> {{user | json}}
+                            <td style="width: 150px;" align="center">{{user["id"]}}</td>
+                            <td style="width: 150px;" align="center">{{user["first_name"]}} </td>
+                            <td style="width: 150px;" align="center">{{user.data["last_name"]}} </td>
+                            <td style="width: 150px;" align="center">{{user.data["email"]}}  </td>
+                            <td style="width: 150px;" align="center">{{user.data["contact_number"]}} </td>
                         </mat-grid-tile>
-                    </tr>  
+                    </tr>   -->
                 </table>
     </mat-grid-list>
             

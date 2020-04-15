@@ -10,7 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class DataService {
 
-  private REST_API_SERVER = "http://localhost:3000/users";
+  private REST_API_SERVER = "http://localhost:4200/webapi/v1/user";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -29,8 +29,8 @@ export class DataService {
   public sendGetRequest() {
     return this.httpClient.get(this.REST_API_SERVER).pipe(retry(3), catchError(this.handleError));
   }
-  public getById(id) {
-    return this.httpClient.get(this.REST_API_SERVER + '/' + id);
+  public getById(id : number) {
+    return this.httpClient.get(this.REST_API_SERVER +"/"+ id);
   }
   public insertUser(data) {
     let httpHeaders = new HttpHeaders({
@@ -43,10 +43,11 @@ export class DataService {
     return this.httpClient.post(this.REST_API_SERVER, data, options).pipe(catchError(this.handleError));
   }
   public deleteProduct(id) {
-    return this.httpClient.delete(this.REST_API_SERVER + '/' + id).pipe(catchError(this.handleError));
+    console.log("delete Product id : "+id);
+    return this.httpClient.delete(this.REST_API_SERVER + "/" + id).pipe(catchError(this.handleError));
   }
-  public updateUser(data, id) {
-    console.log("caledd update")
+  public updateById(data, id,firstname,lastname,email,contactnumber) {
+    console.log("called update")
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache'
@@ -54,6 +55,6 @@ export class DataService {
     let options = {
       headers: httpHeaders
     };
-    return this.httpClient.put(this.REST_API_SERVER + '/' + id, data, options).pipe(catchError(this.handleError));
+    return this.httpClient.put(this.REST_API_SERVER + "/" + id, data, options).pipe(catchError(this.handleError));
   }
 }
