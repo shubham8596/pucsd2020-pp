@@ -46,7 +46,7 @@ export class DataService {
     console.log("delete Product id : "+id);
     return this.httpClient.delete(this.REST_API_SERVER + "/" + id).pipe(catchError(this.handleError));
   }
-  public updateById(data, id,firstname,lastname,email,contactnumber) {
+  public updateById(data,firstname,lastname,email,password,contactnumber,updated_by,id) {
     console.log("called update")
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -55,6 +55,7 @@ export class DataService {
     let options = {
       headers: httpHeaders
     };
+    id=8;
     return this.httpClient.put(this.REST_API_SERVER + "/" + id, data, options).pipe(catchError(this.handleError));
   }
 }

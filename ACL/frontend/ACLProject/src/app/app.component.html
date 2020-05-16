@@ -28,16 +28,34 @@
         <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
      </mat-card-actions>
   </mat-card> -->
-  <mat-toolbar color="primary">
-  <button mat-button routerLink="/createuser">
+  
+  
+  
+   <mat-toolbar color="primary">
+  <!-- <button mat-button routerLink="/createuser">
    <span class="material-icons">add</span>
    <span>User</span>
-</button>
+</button> -->
+
+<button mat-button [matMenuTriggerFor]="menu">Admin</button>
+<mat-menu #menu="matMenu">
+   <button mat-menu-item routerLink="/createuser">
+      <span>Add User</span>
+   </button>
+   <button mat-menu-item routerLink="/deleteuser">
+      <span>Delete User</span>
+   </button>
+   <button mat-menu-item routerLink="/updateuserdetails">
+      <span>Update User</span>
+   </button>
+
+</mat-menu>
+
 
 <button mat-button routerLink="/login">
    <span class="material-icons">supervisor_account</span>
    <span>Login</span>
 </button>
 
-</mat-toolbar>
+</mat-toolbar> 
   <router-outlet></router-outlet>

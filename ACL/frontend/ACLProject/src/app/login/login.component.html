@@ -15,7 +15,7 @@
     <mat-form-field class="home-full-width">
         
         <mat-label>User Id</mat-label>
-        <input matInput id="id" #message formControlName="uid" maxlength="256" placeholder="Ex. 1" required>
+        <input matInput #id #message formControlName="uid" maxlength="256" placeholder="Ex. 1" required>
         
         <mat-error *ngIf="uid.hasError('required')">
           <strong>User name is required</strong>
@@ -47,11 +47,39 @@
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   
-  <button  style="margin-left: 30px;" [disabled]="!registerForm.valid" mat-raised-button color="primary" matSuffix aria-label="Clear" (click)="getById(message.value)" routerLink="/userdetails"> LOGIN
+  <button type="button" style="margin-left: 30px;" [disabled]="!registerForm.valid" mat-raised-button color="primary" matSuffix aria-label="Clear" routerLink="/userdetails" (click)="getByUserGroupId(message.value)" > LOGIN
     </button>  
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <button  style="margin-left: 30px;" mat-raised-button color="primary" matSuffix aria-label="Clear" routerLink="/"> Cancel
     </button>  
+
+    <mat-grid-list cols="1" rowHeight="250px">
+      <mat-grid-tile *ngFor="let user of users" >
+          <mat-card class="home-card"> 
+              <table >
+                  <col width="150">
+                  <col width="150">
+                  <!-- <col width="150">
+                  <col width="150"> -->
+                 
+                  <tr>
+                      <th>User Id</th>
+                      <th>Group Id</th>
+                      <!-- <th> Last Name </th>
+                      <th> Password </th> -->
+                  </tr>
+                   <tr>
+                      <td align="center">{{user.data["u_id"]}} </td>
+                      <td align="center">{{user.data["g_id"]}} </td>
+                      <!-- <td align="center">{{user.data["u_lastname"]}} </td>
+                      <td align="center">{{user.data["u_password"]}} </td> -->
+                   </tr>
+                </table>
+                
+          
+          </mat-card>
+      </mat-grid-tile>
+  </mat-grid-list> 
   
 
 

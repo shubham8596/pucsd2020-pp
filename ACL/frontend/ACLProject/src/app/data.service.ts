@@ -11,6 +11,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class DataService {
 
   private REST_API_SERVER = "http://localhost:4200/webapi/v1/user";
+  private REST_API_SERVER1= "http://localhost:4200/webapi/v1/usergroup";
   constructor(private httpClient: HttpClient) { }
 
   handleError(error: HttpErrorResponse) {
@@ -33,6 +34,19 @@ export class DataService {
     return this.httpClient.get(this.REST_API_SERVER +"/"+ id);
   }
 
+  public sendGetUserGroupRequest() {
+    return this.httpClient.get(this.REST_API_SERVER1).pipe(retry(3), catchError(this.handleError));
+  }
+
+  public getByUserGroupId(id : number) {
+    return this.httpClient.get(this.REST_API_SERVER1 +"/"+ id);
+  }
+
+  public deleteUser(id : number) {
+    console.log("delete Product id : "+id);
+    return this.httpClient.delete(this.REST_API_SERVER +"/"+ id).pipe(catchError(this.handleError));
+  }
+
   public insertUser(data) {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -42,6 +56,19 @@ export class DataService {
       headers: httpHeaders
     };
     return this.httpClient.post(this.REST_API_SERVER, data, options).pipe(catchError(this.handleError));
+  }
+
+  public updateById(data,firstname,lastname,password,id) {
+    console.log("called update")
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache'
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    id=8;
+    return this.httpClient.put(this.REST_API_SERVER + "/" + id, data, options).pipe(catchError(this.handleError));
   }
 
 }

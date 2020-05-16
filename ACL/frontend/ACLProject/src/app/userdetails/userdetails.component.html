@@ -1,4 +1,4 @@
-<br>
+<!-- <br>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;
     <b><h2>&nbsp;&nbsp;&nbsp;&nbsp;List of Groups</h2></b>
 </p>
@@ -17,4 +17,50 @@
     </button>
     {{node.name}}
   </mat-tree-node>
-</mat-tree> 
+</mat-tree>  -->
+<button type="button" style="margin-left: 30px;"  mat-raised-button color="primary" matSuffix aria-label="Clear" (click)="onUpdateClick()" > Groups
+</button>  
+
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<mat-label style="font-size: 20px;"> Search Record</mat-label>
+<div style="padding:10px">
+    <!-- <mat-form-field class="home-full-width">
+        
+        <mat-label>User Id</mat-label>
+        <input matInput id="id" #message maxlength="256" placeholder="Ex. 1" required>
+         
+    </mat-form-field>
+    <button style="margin-left: 30px;" mat-raised-button color="primary" matSuffix aria-label="Clear" (click)="getById(message.value)"> Search
+    </button>   -->
+    <form class="example-form" [formGroup]="registerForm">
+    <mat-grid-list cols="1" rowHeight="250px">
+      <mat-grid-tile *ngFor="let user of users" >
+          <mat-card class="home-card"> 
+              <table >
+                  <col width="150">
+                  <col width="150">
+                  <!-- <col width="150">
+                  <col width="150"> -->
+                 
+                  <tr>
+                      <th>User Id</th>
+                      <th>Group Id</th>
+                      <!-- <th> Last Name </th>
+                      <th> Password </th> -->
+                  </tr>
+                   <tr>
+                      <td align="center">{{user.data["u_id"]}} </td>
+                      <td align="center">{{user.data["g_id"]}} </td>
+                      <!-- <td align="center">{{user.data["u_lastname"]}} </td>
+                      <td align="center">{{user.data["u_password"]}} </td> -->
+                   </tr>
+                </table>
+                
+          
+          </mat-card>
+      </mat-grid-tile>
+  </mat-grid-list> 
+</form>
+    
+</div>

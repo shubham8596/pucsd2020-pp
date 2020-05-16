@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"strconv"
-
+	"/home/shubham/Public/PP/pucsd2020-pp/Challenge3/server/data.json"
 	"github.com/go-chi/chi"
 
 	"github.com/pucsd2020-pp/rest-api/handler"

@@ -53,17 +53,17 @@ export class LoginComponent implements OnInit {
   }
 
   loadUsers() {
-    this.dataService.sendGetRequest().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
+    this.dataService.sendGetUserGroupRequest().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
       this.users = data;
     })
   }
 
-  getById(id) {
+  getByUserGroupId(id) {
     if (id.trim() == "") {
       this.openSnackBar("Please Enter User id and Password ","👤")
     }
     else {
-      this.dataService.getById(id).subscribe((data: any[]) => {
+      this.dataService.getByUserGroupId(id).subscribe((data: any[]) => {
         console.log(Object.keys(data).length)
         var stringData = '[' + JSON.stringify(data) + ']'
         var parseData = JSON.parse(stringData)

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
 import { NgModule } from '@angular/core';
-import {MatTreeModule} from '@angular/material/tree';
+import { MatTreeModule } from '@angular/material/tree';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,19 +20,30 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
+import { HomeComponent } from './home/home.component';
+import { MatMenuModule} from '@angular/material/menu';
+import { DeleteuserComponent } from './deleteuser/deleteuser.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { UpdateuserdetailsComponent } from './updateuserdetails/updateuserdetails.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CreateuserComponent,
-    UserdetailsComponent
+    UserdetailsComponent,
+    HomeComponent,
+    DeleteuserComponent,
+    UpdateuserComponent,
+    UpdateuserdetailsComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatMenuModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatInputModule,

@@ -1,0 +1,46 @@
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<mat-label style="font-size: 20px; margin-left: 500px;"> Delete User</mat-label>
+
+<div style="padding:10px">
+    <br>    <mat-form-field class="home-full-width">
+        
+        <mat-label>User Id</mat-label>
+        <input matInput id="id" #message maxlength="256" placeholder="Ex. 1" required>
+         
+    </mat-form-field>
+    <button style="margin-left: 30px;" mat-raised-button color="primary" matSuffix aria-label="Clear" (click)="getById(message.value)"> Search
+    </button>  
+     <mat-grid-list cols="1" rowHeight="100px">
+        <mat-grid-tile *ngFor="let user of users" >
+            <mat-card class="home-card">
+                <table border="260px">
+                    <col width="150">
+                    <col width="150">
+                    <col width="150">
+                    <col width="150">
+                    <col width="150">
+                    <tr>
+                        <th>User Id</th>
+                        <th>First Name</th>
+                        <th> Last Name </th>
+                        <th> Password </th>
+                        <th> Delete</th>
+                    </tr>
+                     <tr>
+                        <td align="center">{{user.data['u_id']}} </td>
+                        <td align="center">{{user.data["u_firstname"]}} </td>
+                        <td align="center">{{user.data["u_lastname"]}} </td>
+                        <td align="center">{{user.data["u_password"]}} </td>
+                        <td align="center"><button style="margin-left: 30px;" mat-raised-button color="primary" matSuffix aria-label="Clear" (click)="deleteUser(message.value)"> Delete
+                        </button>  </td>
+                     </tr>
+                  </table>
+                  
+            
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list> 
+
+    
+</div>

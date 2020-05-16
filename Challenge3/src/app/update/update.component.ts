@@ -35,11 +35,11 @@ export class UpdateComponent implements OnInit {
       id : user.data['id'],
       firstname="daud",
       lastname= user.data['last_name'],
-      email= user.data['email'],
+      user.data['email']="mgs123gmds@gmail.com"// user.data['email'],
       contactNumber= user.data['contact_number'],
      // user.data['first_name']="madhav"
-      //console.log("firstname : "+ user.data['first_name']);
-      this.dataService.updateById(user,id,firstname,lastname,email,contactNumber).subscribe(data => {
+      console.log("User : "+ user + "firstname : "+user.data['first_name']+"id : "+id+" email : "+email);
+      this.dataService.updateById(user,user.data['first_name'],user.data['last_name'],user.data['email'],user.data['password'],user.data['contact_number'],user.data['updated_by'],id).subscribe(data => {
         this.openSnackBar("Successfully Updated", " 🎉")
         //this.dialogRef.close();
       })
@@ -104,7 +104,7 @@ export class UpdateComponent implements OnInit {
       "password": this.updateForm.value.password,
       "contact_number": this.updateForm.value.contactNumber
     };
-    console.log("hello"+this.updateForm.value.id)
+    console.log("hello "+ this.updateForm.value.id)
       
 
     if (this.updateForm.invalid) {
