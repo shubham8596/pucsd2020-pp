@@ -23,8 +23,6 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { HomeComponent } from './home/home.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { DeleteuserComponent } from './deleteuser/deleteuser.component';
-import { UpdateuserComponent } from './updateuser/updateuser.component';
-import { UpdateuserdetailsComponent } from './updateuserdetails/updateuserdetails.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +31,7 @@ import { UpdateuserdetailsComponent } from './updateuserdetails/updateuserdetail
     CreateuserComponent,
     UserdetailsComponent,
     HomeComponent,
-    DeleteuserComponent,
-    UpdateuserComponent,
-    UpdateuserdetailsComponent
+    DeleteuserComponent
   ],
   imports: [
     BrowserModule,
