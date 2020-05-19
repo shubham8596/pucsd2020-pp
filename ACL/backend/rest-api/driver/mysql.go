@@ -291,7 +291,7 @@ func GetAll(conn *sql.DB, object model.IModel, limit, offset int64) ([]interface
 	rType := reflect.TypeOf(object)
 
 	columns := []string{}
-	pointers := make([]interface{}, 0)
+	//pointers := make([]interface{}, 0)
 
 	for idx := 0; idx < rValue.Elem().NumField(); idx++ {
 		field := rType.Elem().Field(idx)
@@ -300,8 +300,11 @@ func GetAll(conn *sql.DB, object model.IModel, limit, offset int64) ([]interface
 		}
 
 		column := field.Tag.Get("column")
-		columns = append(columns, column)
-		pointers = append(pointers, rValue.Elem().Field(idx).Addr().Interface())
+		if column != "sessionKey" {
+			columns = append(columns, column)
+		}
+		//columns = append(columns, column)
+		//pointers = append(pointers, rValue.Elem().Field(idx).Addr().Interface())
 	}
 
 	var queryBuffer bytes.Buffer
@@ -318,29 +321,39 @@ func GetAll(conn *sql.DB, object model.IModel, limit, offset int64) ([]interface
 	}
 
 	query := queryBuffer.String()
-	//	log.Printf("GetById sql: %s\n", query)
-	row, err := conn.Query(query, params...)
-
+	row, err := conn.Query(query)//, params...)
 	if nil != err {
 		log.Printf("Error conn.Query: %s\n\tError Query: %s\n", err.Error(), query)
 		return nil, err
 	}
-
-	defer row.Close()
+	//defer row.Close()
 	objects := make([]interface{}, 0)
+	recds, err := row.Columns()
+	if nil != err {
+		log.Printf("Error conn.Query: %s\n\tError Query: %s\n", err.Error(), query)
+		return nil, err
+	}
+	defer row.Close()
 	for row.Next() {
 		if nil != err {
 			log.Printf("Error row.Columns(): %s\n\tError Query: %s\n", err.Error(), query)
 			return nil, err
 		}
+		
+		values := make([]interface{}, len(recds))
+		recdsWrite := make([]string, len(recds))
+		for index, _ := range recds {
+			values[index] = &recdsWrite[index]
+		}
+		err = row.Scan(values...)
 
-		err = row.Scan(pointers...)
+		//err = row.Scan(pointers...)
 		if nil != err {
 			log.Printf("Error: row.Scan: %s\n", err.Error())
 			return nil, err
 		}
 
-		objects = append(objects, object)
+		objects = append(objects, values)
 	}
 
 	return objects, nil

@@ -1,3 +1,4 @@
+import {HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataService } from '../data.service';
@@ -10,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CreateuserComponent implements OnInit {
   constructor(
+    private routers:Router ,private http:HttpClient,
     private _snackBar: MatSnackBar,
     private formBuilder: FormBuilder,
     private dataService: DataService,
@@ -43,7 +45,7 @@ export class CreateuserComponent implements OnInit {
     );
   }
 
-  onSubmit() {
+  public onSubmit() {
     let userData = {
       "u_id": this.registerForm.value.uid,
       "u_firstname" : this.registerForm.value.firstname,
@@ -61,5 +63,6 @@ export class CreateuserComponent implements OnInit {
     })
     this.registerForm.reset();
   }
+
 
 }

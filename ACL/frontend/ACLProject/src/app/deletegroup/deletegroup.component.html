@@ -1,0 +1,41 @@
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<mat-label style="font-size: 20px; margin-left: 500px;"> Delete Group</mat-label>
+
+<div style="padding:10px">
+    <br>    <mat-form-field class="home-full-width">
+        
+        <mat-label>Group Id</mat-label>
+        <input matInput id="id" #message maxlength="256" placeholder="Ex. 1" required>
+         
+    </mat-form-field>
+    <button style="margin-left: 30px;" mat-raised-button color="primary" matSuffix aria-label="Clear" (click)="getByGroupId(message.value)"> Search
+    </button> 
+    <button routerLink="/" style="margin-left: 30px;" mat-raised-button color="primary">Cancel</button> 
+     <mat-grid-list cols="1" rowHeight="100px">
+        <mat-grid-tile *ngFor="let user of users" >
+            <mat-card class="home-card">
+                <table border="260px">
+                    <col width="150">
+                    <col width="150">
+                    <col width="150">
+                    <tr>
+                        <th>Group Id</th>
+                        <th>Group Name</th>
+                        <th> Delete</th>
+                    </tr>
+                     <tr>
+                        <td align="center">{{user.data['g_id']}} </td>
+                        <td align="center">{{user.data["g_name"]}} </td>
+                        <td align="center"><button style="margin-left: 30px;" mat-raised-button color="primary" matSuffix aria-label="Clear" (click)="deleteGroup(message.value)"> Delete
+                        </button>  </td>
+                     </tr>
+                  </table>
+                  
+            
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list> 
+
+    
+</div>

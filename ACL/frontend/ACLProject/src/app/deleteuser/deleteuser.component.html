@@ -10,7 +10,8 @@
          
     </mat-form-field>
     <button style="margin-left: 30px;" mat-raised-button color="primary" matSuffix aria-label="Clear" (click)="getById(message.value)"> Search
-    </button>  
+    </button> 
+    <button routerLink="/" style="margin-left: 30px;" mat-raised-button color="primary">Cancel</button> 
      <mat-grid-list cols="1" rowHeight="100px">
         <mat-grid-tile *ngFor="let user of users" >
             <mat-card class="home-card">

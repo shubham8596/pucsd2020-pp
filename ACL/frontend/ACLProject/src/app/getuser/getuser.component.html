@@ -1,0 +1,27 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="u_id">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> User Id </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.u_id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="u_firstname">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> First Name </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.u_firstname}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="u_lastname">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> Last Name </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.u_lastname}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="u_password">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> Password </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.u_password}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  

@@ -1,0 +1,17 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="g_id">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> Group Id </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.g_id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="g_name">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> Group Name </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.g_name}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  

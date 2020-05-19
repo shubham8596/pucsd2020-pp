@@ -1,10 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'login',
@@ -15,13 +18,22 @@ export class LoginComponent implements OnInit {
 
   navigationSubscription;
   users = [];
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  loginForm: FormGroup;
+  valid;
+  code;
+  
   destroy$: Subject<boolean> = new Subject<boolean>();
-  constructor(private dataService: DataService,
+  constructor(private httpclient:HttpClient,
+              private dataService: DataService,
               private formBuilder: FormBuilder,
-              private _snackBar: MatSnackBar,) {
+              private _snackBar: MatSnackBar,
+              private router: Router,
+              private api: DataService) {
     
    }
-   registerForm: FormGroup;
    uid = new FormControl('',  [Validators.required, Validators.pattern(new RegExp("[0-9 ]"))]);
    password = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]);
   
@@ -31,7 +43,7 @@ export class LoginComponent implements OnInit {
   }
   
   createFormValidations() {
-    this.registerForm = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
 
        uid: this.uid,
        password: this.password,
@@ -47,7 +59,7 @@ export class LoginComponent implements OnInit {
 
   openSnackBar(message, action) {
     this._snackBar.open(message, action, {
-      duration: 10000,
+      duration: 3000,
       verticalPosition: 'top'
     });
   }
@@ -57,6 +69,8 @@ export class LoginComponent implements OnInit {
       this.users = data;
     })
   }
+
+  
 
   getByUserGroupId(id) {
     if (id.trim() == "") {
@@ -70,6 +84,7 @@ export class LoginComponent implements OnInit {
         this.users = parseData;
       
           this.openSnackBar("Login Successfully","😊")
+
          // this.loadUsers();
       },
         (err: HttpErrorResponse) => {
@@ -89,6 +104,5 @@ export class LoginComponent implements OnInit {
       )
     }
   }
-
 
 }

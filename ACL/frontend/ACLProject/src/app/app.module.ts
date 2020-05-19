@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {CommonModule} from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatTreeModule } from '@angular/material/tree';
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -23,6 +23,13 @@ import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { HomeComponent } from './home/home.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { DeleteuserComponent } from './deleteuser/deleteuser.component';
+import { GroupComponent } from './group/group.component';
+import { DirectoryComponent } from './directory/directory.component';
+import { GetuserComponent } from './getuser/getuser.component';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
+import { GetgroupComponent } from './getgroup/getgroup.component';
+import { DeletegroupComponent } from './deletegroup/deletegroup.component';
+import { AddusertogroupComponent } from './addusertogroup/addusertogroup.component';
 
 @NgModule({
   declarations: [
@@ -31,11 +38,18 @@ import { DeleteuserComponent } from './deleteuser/deleteuser.component';
     CreateuserComponent,
     UserdetailsComponent,
     HomeComponent,
-    DeleteuserComponent
+    DeleteuserComponent,
+    GroupComponent,
+    DirectoryComponent,
+    GetuserComponent,
+    UserDialogComponent,
+    GetgroupComponent,
+    DeletegroupComponent,
+    AddusertogroupComponent
   ],
   imports: [
     BrowserModule,
-    CommonModule,
+    MatTableModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,

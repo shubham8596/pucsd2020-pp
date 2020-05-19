@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "photo": "https://s3.amazonaws.com/uifaces/faces/twitter/slowspock/128.jpg",
+      "u_firstname": "Shubham",
+      "u_lastname": "Jadhav",
+      "u_password": "prince",
+      "u_id": 1
+    },
+    {
+      "photo": "https://s3.amazonaws.com/uifaces/faces/twitter/homka/128.jpg",
+      "u_firstname": "Shubham",
+      "u_lastname": "Jadhav",
+      "u_password": "prince",
+      "u_id": 2
+    },
+    {
+      "photo": "https://s3.amazonaws.com/uifaces/faces/twitter/diansigitp/128.jpg",
+      "u_firstname": "Shubham",
+      "u_lastname": "Jadhav",
+      "u_password": "prince",
+      "u_id": 3
+    }
+  ]
+}
