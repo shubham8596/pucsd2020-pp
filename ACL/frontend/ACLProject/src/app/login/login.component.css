@@ -1,8 +1,26 @@
 .home-full-width {
-  margin-top: 0px;
+  margin-top: 10px;
   margin-left: 40%;
   width: 20%;
 }
 table {
   width: 100%;
 }
+/* .login-form{
+  padding: 10px;
+  position: absolute;
+left: 33%;
+top: 30%;
+}
+
+.login-field{
+  width: 200%;
+}
+
+.button-field{
+  width: 100%;
+  margin-left: 200px;
+}
+.mat-raised-button{
+margin-left: 170%;
+} */

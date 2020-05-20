@@ -33,6 +33,11 @@ export class DataService {
     return this.httpClient.post('/webapi/v1/isvaliduser', body);
   }
 
+  login(poststring)
+    {
+        return this.httpClient.post(this.REST_API_SERVER,poststring);
+    }
+
   public sendGetRequest() {
     return this.httpClient.get(this.REST_API_SERVER).pipe(retry(3), catchError(this.handleError));
   }

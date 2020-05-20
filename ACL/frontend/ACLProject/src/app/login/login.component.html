@@ -1,46 +1,21 @@
 <br><br>
-
 <mat-label style="font-size: 20px; margin-left: 45%;"> USER LOGIN</mat-label>
 <br><br>
-
-<div style="padding:10px">
-  <form class="example-form" [formGroup]="loginForm">
-    <mat-form-field class="home-full-width">
-        
-        <mat-label>User Id</mat-label>
-        <input matInput #uname formControlName="uid" maxlength="256" placeholder="Ex. 1" required>
-        
-        <mat-error *ngIf="uid.hasError('required')">
-          <strong>User name is required</strong>
-      
-        </mat-error> 
-
-    </mat-form-field>
-    <br>
-    <mat-form-field class="home-full-width">
-       <mat-label>Password</mat-label>
-      <input matInput #pass placeholder="Password" formControlName="password" type="password" #message maxlength="256" required>
-     
-      <mat-error *ngIf="password.hasError('required')">
-        <strong>Password is required</strong>
-      </mat-error>
-      <mat-error *ngIf="password.hasError('minlength')">
-        <strong>Required length is at least 6 characters</strong>
-      </mat-error>
-
-
-  </mat-form-field>
-
-  <br> <br>
-  
-  <button type="button" style="margin-left: 40%;" [disabled]="!loginForm.valid" mat-raised-button color="primary" matSuffix aria-label="Clear" routerLink="/userdetails" (click)="getByUserGroupId(message.value)" > LOGIN
-    </button>  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button  style="margin-left: 3%;" mat-raised-button color="primary" matSuffix aria-label="Clear" routerLink="/"> Cancel
-    </button>  
-
-   
-
-
-  </form>
+<div *ngIf="firstLogin==true">
+  <div style="padding:20px">
+      <form (submit)="login()">
+          <mat-form-field class="home-full-width">
+              <input matInput [(ngModel)]="u_id" name="u_id" placeholder="Ex. 1" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="home-full-width" >
+              <input matInput  class="input" [(ngModel)]="u_password" name="u_password" placeholder="Enter The Password" required>
+          </mat-form-field>
+          <br><br>
+          
+          <button mat-button style="margin-left: 40%;"  mat-raised-button color="primary" type="submit">LOGIN</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button mat-button style="margin-left: 2%;"  mat-raised-button color="primary" routerLink="/">CANCEL</button>
+      </form>
+  </div>
 </div>

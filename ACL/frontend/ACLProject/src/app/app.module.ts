@@ -20,7 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateuserComponent } from './createuser/createuser.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
-import { HomeComponent } from './home/home.component';
+//import { HomeComponent } from './home/home.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { DeleteuserComponent } from './deleteuser/deleteuser.component';
 import { GroupComponent } from './group/group.component';
@@ -37,7 +37,7 @@ import { AddusertogroupComponent } from './addusertogroup/addusertogroup.compone
     LoginComponent,
     CreateuserComponent,
     UserdetailsComponent,
-    HomeComponent,
+  //  HomeComponent,
     DeleteuserComponent,
     GroupComponent,
     DirectoryComponent,
