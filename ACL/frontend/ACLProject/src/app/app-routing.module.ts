@@ -11,6 +11,8 @@ import { GetuserComponent } from './getuser/getuser.component';
 import { DeletegroupComponent } from './deletegroup/deletegroup.component';
 import { GetgroupComponent } from './getgroup/getgroup.component';
 import { AddusertogroupComponent } from './addusertogroup/addusertogroup.component';
+import { UsergroupinfoComponent } from './usergroupinfo/usergroupinfo.component'; 
+import { FileComponent } from './file/file.component'; 
 
 const routes: Routes = [
                         // { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -24,7 +26,9 @@ const routes: Routes = [
                         { path: 'getuser', component: GetuserComponent },
                         { path: 'deletegroup', component: DeletegroupComponent },
                         { path: 'getgroup', component: GetgroupComponent },
-                        { path: 'addusertogroup', component: AddusertogroupComponent }
+                        { path: 'addusertogroup', component: AddusertogroupComponent },
+                        { path: 'usergroupinfo', component: UsergroupinfoComponent},
+                        { path: 'file', component: FileComponent}
                       ];
 
 @NgModule({

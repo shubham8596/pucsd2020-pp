@@ -1,0 +1,21 @@
+<app-userdetails></app-userdetails>
+<br>
+<mat-label style="font-size: 20px; margin-left: 45%;"> USER & GROUP</mat-label>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="u_id">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> User Id </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.u_id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="g_id">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> Group Id </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.g_id}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  

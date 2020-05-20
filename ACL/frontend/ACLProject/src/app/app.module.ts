@@ -30,6 +30,8 @@ import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { GetgroupComponent } from './getgroup/getgroup.component';
 import { DeletegroupComponent } from './deletegroup/deletegroup.component';
 import { AddusertogroupComponent } from './addusertogroup/addusertogroup.component';
+import { UsergroupinfoComponent } from './usergroupinfo/usergroupinfo.component';
+import { FileComponent } from './file/file.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { AddusertogroupComponent } from './addusertogroup/addusertogroup.compone
     UserDialogComponent,
     GetgroupComponent,
     DeletegroupComponent,
-    AddusertogroupComponent
+    AddusertogroupComponent,
+    UsergroupinfoComponent,
+    FileComponent
   ],
   imports: [
     BrowserModule,

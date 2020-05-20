@@ -40,8 +40,8 @@ CREATE TABLE IF NOT EXISTS user_group (
     	u_id             	INT,
     	g_id            	INT,
     	PRIMARY KEY(u_id,g_id),
-    	FOREIGN KEY(u_id) REFERENCES users(u_id),
-    	FOREIGN KEY(g_id) REFERENCES groups(g_id)
+    	FOREIGN KEY(u_id) REFERENCES users(u_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    	FOREIGN KEY(g_id) REFERENCES groups(g_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -49,8 +49,8 @@ CREATE TABLE IF NOT EXISTS file_folder (
 	file_id             	INT,  
 	folder_id           	INT,
         PRIMARY KEY(folder_id,file_id),	
-    	FOREIGN KEY(file_id) 	REFERENCES 	files(file_id),
-    	FOREIGN KEY(folder_id) 	REFERENCES 	folders(folder_id)
+    	FOREIGN KEY(file_id) 	REFERENCES 	files(file_id)  ON DELETE CASCADE ON UPDATE CASCADE,
+    	FOREIGN KEY(folder_id) 	REFERENCES 	folders(folder_id)  ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -59,9 +59,9 @@ CREATE TABLE IF NOT EXISTS file_permission(
     	file_id    		INT,
 	p_id       		INT,
 	PRIMARY KEY(u_id,file_id),
-	FOREIGN KEY(u_id) 	REFERENCES 	users(u_id),
-	FOREIGN KEY(file_id) 	REFERENCES 	files(file_id),
-	FOREIGN KEY(p_id) 	REFERENCES 	permissions(p_id)
+	FOREIGN KEY(u_id) 	REFERENCES 	users(u_id) ON DELETE CASCADE ON UPDATE CASCADE, 
+	FOREIGN KEY(file_id) 	REFERENCES 	files(file_id)  ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY(p_id) 	REFERENCES 	permissions(p_id)  ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS folder_permission(
     	folder_id  		INT,
     	p_id       		INT,
     	PRIMARY KEY(u_id,folder_id),
-    	FOREIGN KEY(u_id) 	REFERENCES 	users(u_id),
-    	FOREIGN KEY(folder_id) 	REFERENCES 	folders(folder_id),
-    	FOREIGN KEY(p_id) 	REFERENCES 	permissions(p_id)
+    	FOREIGN KEY(u_id) 	REFERENCES 	users(u_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    	FOREIGN KEY(folder_id) 	REFERENCES 	folders(folder_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    	FOREIGN KEY(p_id) 	REFERENCES 	permissions(p_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
