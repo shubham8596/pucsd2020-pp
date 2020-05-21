@@ -13,6 +13,7 @@ export class DataService {
   private REST_API_SERVER = "http://localhost:4200/webapi/v1/user";
   private REST_API_SERVER1= "http://localhost:4200/webapi/v1/usergroup";
   private REST_API_SERVER2= "http://localhost:4200/webapi/v1/group";
+  private REST_API_SERVER3= "http://localhost:4200/webapi/v1/folder";
   
   constructor(private httpClient: HttpClient) { }
 
@@ -49,6 +50,11 @@ export class DataService {
     return this.httpClient.get(this.REST_API_SERVER1).pipe(retry(3), catchError(this.handleError));
   }
 
+  public sendGetFolderRequest() {
+    return this.httpClient.get(this.REST_API_SERVER3).pipe(retry(3), catchError(this.handleError));
+  }
+
+
   public getById(id : number) {
     return this.httpClient.get(this.REST_API_SERVER +"/"+ id);
   }
@@ -59,6 +65,10 @@ export class DataService {
 
   public getByUserGroupId(id : number) {
     return this.httpClient.get(this.REST_API_SERVER1 +"/"+ id);
+  }
+
+  public getByFolderId(id : number) {
+    return this.httpClient.get(this.REST_API_SERVER3 +"/"+ id);
   }
   
   public updateUser(data, id :number ) {
@@ -86,10 +96,14 @@ export class DataService {
   }
 
   public deleteGroup(id : number) {
-    console.log("delete User id : "+id);
+    console.log("delete Group id : "+id);
     return this.httpClient.delete(this.REST_API_SERVER2 +"/"+ id).pipe(catchError(this.handleError));
   }
 
+  public deleteFolder(id : number) {
+    console.log("delete Folder id : "+id);
+    return this.httpClient.delete(this.REST_API_SERVER3 +"/"+ id).pipe(catchError(this.handleError));
+  }
 
   public insertUser(data) {
     let httpHeaders = new HttpHeaders({
@@ -123,6 +137,17 @@ export class DataService {
       headers: httpHeaders
     };
     return this.httpClient.post(this.REST_API_SERVER2, data, options).pipe(catchError(this.handleError));
+  }
+
+  public insertDirectory(data) {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache'
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.post(this.REST_API_SERVER3, data, options).pipe(catchError(this.handleError));
   }
 
 }

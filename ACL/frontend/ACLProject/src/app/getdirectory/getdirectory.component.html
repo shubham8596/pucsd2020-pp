@@ -1,0 +1,23 @@
+<app-userdetails></app-userdetails>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="folder_id">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> Directory Id </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.folder_id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="folder_name">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> Directory Name </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.folder_name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="folder_path">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> Directory Path </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.folder_path}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  

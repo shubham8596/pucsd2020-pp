@@ -4,7 +4,7 @@
         <button  mat-raised-button color="primary" [matMenuTriggerFor]="menu">
           <span class="material-icons">group</span>
           <span> Groups</span>
-         </button>
+        </button>
           
         <mat-menu #menu="matMenu">
           <button mat-menu-item routerLink="/usergroupinfo">
@@ -13,10 +13,24 @@
         </mat-menu>
      &nbsp;&nbsp;
 
-      <button  mat-raised-button color="primary" [routerLink]="['/directory']">
+      <button  mat-raised-button color="primary" [matMenuTriggerFor]="menu1">
         <span class="material-icons">folder</span>
         <span> Directory</span>
       </button> 
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item routerLink="/directory">
+          <span>Create Directory</span>
+        </button>
+
+        <button mat-menu-item routerLink="/deletedirectory">
+          <span>Delete Directory</span>
+        </button>
+
+        <button mat-menu-item routerLink="/getdirectory">
+          <span>Get Directory</span>
+        </button>
+      </mat-menu>
+        
       &nbsp;&nbsp;
 
       <button  mat-raised-button color="primary" [routerLink]="['/file']">

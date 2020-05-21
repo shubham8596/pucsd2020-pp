@@ -1,2 +1,64 @@
 <app-userdetails></app-userdetails>
-<p>directory works!</p>
+
+<mat-label style="font-size: 20px; margin-left: 45%;"> Create Directory</mat-label>
+
+
+<form class="example-form" [formGroup]="registerForm">
+
+<mat-form-field class="example-full-width2">
+      
+  <mat-label>Folder Id</mat-label>
+  <input matInput name="folder_id" formControlName="fid" maxlength="100" required>
+
+  
+  <mat-error *ngIf="fid.hasError('required')">
+    <strong>folder id is required</strong>
+
+  </mat-error>
+
+</mat-form-field>
+
+ <mat-form-field class="example-full-width2">
+      
+  <mat-label>Folder Name</mat-label>
+  <input matInput name="folder_name" formControlName="fname" maxlength="100" required>
+
+  
+  <mat-error *ngIf="fname.hasError('required')">
+    <strong>folder name is required</strong>
+
+  </mat-error>
+
+</mat-form-field>
+
+<br>
+
+<mat-form-field class="example-full-width2">
+      
+  <mat-label>Folder Path</mat-label>
+  <input matInput name="folder_path" formControlName="fpath" maxlength="100">
+
+  
+  <mat-error *ngIf="fpath.hasError('required')">
+    <strong>folder path is required</strong>
+
+  </mat-error>
+
+</mat-form-field> 
+
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<button style="margin-left: 30px;" name="save" mat-raised-button color="primary"
+  [disabled]="!registerForm.valid" (click)="onSubmit()">CREATE</button>
+<button style="margin-left: 30px;" mat-raised-button color="primary"
+   type="reset">Cancel</button>
+</form>
+

@@ -34,7 +34,9 @@ func init() {
 		httpHandler.NewUserHandler(dbConn),
 		httpHandler.NewGroupHandler(dbConn),
 		httpHandler.NewFileHandler(dbConn),
+		httpHandler.NewFolderHandler(dbConn),
 		httpHandler.NewUserGroupHandler(dbConn),
+		httpHandler.NewFileFolderHandler(dbConn),
 	}
 }
 

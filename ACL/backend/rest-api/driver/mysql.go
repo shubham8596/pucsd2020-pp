@@ -338,6 +338,60 @@ func GetByFileId(conn *sql.DB, object model.IModel, id int64) (model.IModel, err
 	return object, nil
 }
 
+func GetByFolderId(conn *sql.DB, object model.IModel, id int64) (model.IModel, error) {
+	rValue := reflect.ValueOf(object)
+	rType := reflect.TypeOf(object)
+
+	columns := []string{}
+	pointers := make([]interface{}, 0)
+
+	for idx := 0; idx < rValue.Elem().NumField(); idx++ {
+		field := rType.Elem().Field(idx)
+		if COLUMN_INGNORE_FLAG == field.Tag.Get("ignore") {
+			continue
+		}
+
+		column := field.Tag.Get("column")
+		columns = append(columns, column)
+		pointers = append(pointers, rValue.Elem().Field(idx).Addr().Interface())
+	}
+
+	var queryBuffer bytes.Buffer
+
+	queryBuffer.WriteString("SELECT ")
+	queryBuffer.WriteString(strings.Join(columns, ", "))
+	queryBuffer.WriteString(" FROM ")
+	queryBuffer.WriteString(object.Table())
+	queryBuffer.WriteString(" WHERE folder_id = ?")
+
+	query := queryBuffer.String()
+	//	log.Printf("GetById sql: %s\n", query)
+	row, err := conn.Query(query, id)
+
+	if nil != err {
+		log.Printf("Error conn.Query: %s\n\tError Query: %s\n", err.Error(), query)
+		return nil, err
+	}
+
+	defer row.Close()
+	if row.Next() {
+		if nil != err {
+			log.Printf("Error row.Columns(): %s\n\tError Query: %s\n", err.Error(), query)
+			return nil, err
+		}
+
+		err = row.Scan(pointers...)
+		if nil != err {
+			log.Printf("Error: row.Scan: %s\n", err.Error())
+			return nil, err
+		}
+	} else {
+		return nil, errors.New(fmt.Sprintf("Entry not found for id: %d", id))
+	}
+
+	return object, nil
+}
+
 func GetByFilePermissionId(conn *sql.DB, object model.IModel, id int64) (model.IModel, error) {
 	rValue := reflect.ValueOf(object)
 	rType := reflect.TypeOf(object)
@@ -542,6 +596,31 @@ func DeleteByFileId(conn *sql.DB, object model.IModel, id int64) (sql.Result, er
 	return result, err
 }
 
+func DeleteByFolderId(conn *sql.DB, object model.IModel, id int64) (sql.Result, error) {
+	var queryBuffer bytes.Buffer
+	queryBuffer.WriteString("DELETE FROM ")
+	queryBuffer.WriteString(object.Table())
+	queryBuffer.WriteString(" WHERE folder_id = ?")
+
+	query := queryBuffer.String()
+	//	log.Println("Delete statement is: %s", query)
+	stmt, err := conn.Prepare(query)
+	if nil != err {
+		log.Printf("Delete Syntax Error: %s\n\tError Query: %s : %s\n",
+			err.Error(), object.String(), query)
+		return nil, err
+	}
+
+	defer stmt.Close()
+	result, err := stmt.Exec(id)
+	if nil != err {
+		log.Printf("Delete Execute Error: %s\nError Query: %s : %s\n",
+			err.Error(), object.String(), query)
+	}
+
+	return result, err
+}
+
 
 func SoftDeleteById(conn *sql.DB, object model.IModel, id int64) error {
 	var queryBuffer bytes.Buffer
@@ -598,6 +677,31 @@ func SoftDeleteByFileId(conn *sql.DB, object model.IModel, id int64) error {
 	queryBuffer.WriteString("DELETE FROM ")
 	queryBuffer.WriteString(object.Table())
 	queryBuffer.WriteString(" WHERE file_id = ?")
+
+	query := queryBuffer.String()
+	//	log.Println("Delete statement is: %s", query)
+	stmt, err := conn.Prepare(query)
+	if nil != err {
+		log.Printf("Delete Syntax Error: %s\n\tError Query: %s : %s\n",
+			err.Error(), object.String(), query)
+		return err
+	}
+
+	defer stmt.Close()
+	_, err = stmt.Exec(id)
+	if nil != err {
+		log.Printf("Delete Execute Error: %s\nError Query: %s : %s\n",
+			err.Error(), object.String(), query)
+	}
+
+	return err
+}
+
+func SoftDeleteByFolderId(conn *sql.DB, object model.IModel, id int64) error {
+	var queryBuffer bytes.Buffer
+	queryBuffer.WriteString("DELETE FROM ")
+	queryBuffer.WriteString(object.Table())
+	queryBuffer.WriteString(" WHERE folder_id = ?")
 
 	query := queryBuffer.String()
 	//	log.Println("Delete statement is: %s", query)

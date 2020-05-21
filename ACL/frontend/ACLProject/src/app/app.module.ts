@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -32,6 +33,8 @@ import { DeletegroupComponent } from './deletegroup/deletegroup.component';
 import { AddusertogroupComponent } from './addusertogroup/addusertogroup.component';
 import { UsergroupinfoComponent } from './usergroupinfo/usergroupinfo.component';
 import { FileComponent } from './file/file.component';
+import { DeletedirectoryComponent } from './deletedirectory/deletedirectory.component';
+import { GetdirectoryComponent } from './getdirectory/getdirectory.component';
 
 @NgModule({
   declarations: [
@@ -49,11 +52,14 @@ import { FileComponent } from './file/file.component';
     DeletegroupComponent,
     AddusertogroupComponent,
     UsergroupinfoComponent,
-    FileComponent
+    FileComponent,
+    DeletedirectoryComponent,
+    GetdirectoryComponent
   ],
   imports: [
     BrowserModule,
     MatTableModule,
+    MatCheckboxModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
