@@ -11,6 +11,9 @@
    <button mat-menu-item routerLink="/getuser">
       <span>Get User</span>
    </button>
+   <button mat-menu-item routerLink="/updateuser">
+      <span>Update User</span>
+   </button>
    <button mat-menu-item routerLink="/group">
       <span>Add Group</span>
    </button>
@@ -20,13 +23,16 @@
    <button mat-menu-item routerLink="/getgroup">
       <span>Get Group</span>
    </button>
+   <button mat-menu-item routerLink="/updategroup">
+      <span>Update Group</span>
+   </button>
    <button mat-menu-item routerLink="/addusertogroup">
       <span>Add User To Group</span>
    </button>
 
 </mat-menu>
 
-<button mat-button *ngIf="router.url==='/' || router.url==='/login' || router.url==='/createuser' || router.url==='/deleteuser' || router.url==='/getuser' || router.url==='/group' || router.url==='/deletegroup' || router.url==='/getgroup' || router.url==='/addusertogroup'" routerLink="/login">
+<button mat-button *ngIf="router.url==='/' || router.url==='/login' || router.url==='/createuser' || router.url==='/deleteuser' || router.url==='/updateuser' || router.url==='/updategroup' || router.url==='/getuser' || router.url==='/group' || router.url==='/deletegroup' || router.url==='/getgroup' || router.url==='/addusertogroup'" routerLink="/login">
    <!-- <button mat-button routerLink="/login"> -->
       <span class="material-icons">person</span>
      

@@ -37,6 +37,8 @@ func init() {
 		httpHandler.NewFolderHandler(dbConn),
 		httpHandler.NewUserGroupHandler(dbConn),
 		httpHandler.NewFileFolderHandler(dbConn),
+		httpHandler.NewFilePermissionHandler(dbConn),
+		httpHandler.NewFolderPermissionHandler(dbConn),
 	}
 }
 

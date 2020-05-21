@@ -29,16 +29,65 @@
         <button mat-menu-item routerLink="/getdirectory">
           <span>Get Directory</span>
         </button>
+        <button mat-menu-item routerLink="/updatedirectory">
+          <span>Update Directory</span>
+        </button>
       </mat-menu>
         
       &nbsp;&nbsp;
 
-      <button  mat-raised-button color="primary" [routerLink]="['/file']">
+      <button  mat-raised-button color="primary" [matMenuTriggerFor]="menu2">
         <span class="material-icons">note_add</span>
         <span> File</span>
       </button>
+      
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item routerLink="/file">
+          <span>Create File</span>
+        </button>
+
+        <button mat-menu-item routerLink="/deletefile">
+          <span>Delete File</span>
+        </button>
+
+        <button mat-menu-item routerLink="/getfile">
+          <span>Get File</span>
+        </button>
+        <button mat-menu-item routerLink="/updatefile">
+          <span>Update File</span>
+        </button>
+      </mat-menu>
+
+      &nbsp;&nbsp;
+
+      <button  mat-raised-button color="primary" [matMenuTriggerFor]="menu3" >
+        <span class="material-icons">person_pin</span>
+        <span> Permissions</span>
+      </button>
+
+      <mat-menu #menu3="matMenu">
+
+        <button mat-menu-item routerLink="/filepermission">
+          <span>File Permissions</span>
+        </button>
+
+        <button mat-menu-item routerLink="/updatefilepermission">
+          <span>Update File Permissions</span>
+        </button>
+
+        <button mat-menu-item routerLink="/folderpermission">
+          <span>Folder Permissions</span>
+        </button>
+
+        <button mat-menu-item routerLink="/updatefolderpermission">
+          <span>Update Folder Permissions</span>
+        </button>
+
+      </mat-menu>
+        
+
       <!-- <button mat-button mat-raised-button color="primary" type="submit" (click)="goToPage('/')"> -->
-      <button mat-button style="margin-left: 830px;" mat-raised-button color="primary" type="submit" routerLink="/login">
+      <button mat-button style="margin-left: 660px;" mat-raised-button color="primary" type="submit" routerLink="/login">
       
         <mat-icon>exit_to_app</mat-icon>
         <span>Logout</span>

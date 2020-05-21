@@ -392,6 +392,7 @@ func GetByFolderId(conn *sql.DB, object model.IModel, id int64) (model.IModel, e
 	return object, nil
 }
 
+/*
 func GetByFilePermissionId(conn *sql.DB, object model.IModel, id int64) (model.IModel, error) {
 	rValue := reflect.ValueOf(object)
 	rType := reflect.TypeOf(object)
@@ -446,7 +447,7 @@ func GetByFilePermissionId(conn *sql.DB, object model.IModel, id int64) (model.I
 	return object, nil
 }
 
-
+*/
 
 func GetAll(conn *sql.DB, object model.IModel, limit, offset int64) ([]interface{}, error) {
 	rValue := reflect.ValueOf(object)

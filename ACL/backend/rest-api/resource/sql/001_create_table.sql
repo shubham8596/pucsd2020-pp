@@ -31,8 +31,9 @@ CREATE TABLE IF NOT EXISTS folders(
 
 
 CREATE TABLE IF NOT EXISTS permissions (
-    	p_id       		INT         	PRIMARY KEY,
-    	p_type     		VARCHAR(20)    	NOT NULL
+    	p_id       		INT,
+    	p_type     		VARCHAR(20),
+	PRIMARY KEY(p_type)
 );
 
 
@@ -57,21 +58,19 @@ CREATE TABLE IF NOT EXISTS file_folder (
 CREATE TABLE IF NOT EXISTS file_permission(
 	u_id       		INT,
     	file_id    		INT,
-	p_id       		INT,
+	p_type       		VARCHAR(20),
 	PRIMARY KEY(u_id,file_id),
 	FOREIGN KEY(u_id) 	REFERENCES 	users(u_id) ON DELETE CASCADE ON UPDATE CASCADE, 
-	FOREIGN KEY(file_id) 	REFERENCES 	files(file_id)  ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY(p_id) 	REFERENCES 	permissions(p_id)  ON DELETE CASCADE ON UPDATE CASCADE
+	FOREIGN KEY(file_id) 	REFERENCES 	files(file_id)  ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
 CREATE TABLE IF NOT EXISTS folder_permission(
     	u_id       		INT,
     	folder_id  		INT,
-    	p_id       		INT,
+    	p_type       		VARCHAR(20),
     	PRIMARY KEY(u_id,folder_id),
     	FOREIGN KEY(u_id) 	REFERENCES 	users(u_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    	FOREIGN KEY(folder_id) 	REFERENCES 	folders(folder_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    	FOREIGN KEY(p_id) 	REFERENCES 	permissions(p_id) ON DELETE CASCADE ON UPDATE CASCADE
+    	FOREIGN KEY(folder_id) 	REFERENCES 	folders(folder_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 

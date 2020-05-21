@@ -27,7 +27,6 @@ import { DeleteuserComponent } from './deleteuser/deleteuser.component';
 import { GroupComponent } from './group/group.component';
 import { DirectoryComponent } from './directory/directory.component';
 import { GetuserComponent } from './getuser/getuser.component';
-import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { GetgroupComponent } from './getgroup/getgroup.component';
 import { DeletegroupComponent } from './deletegroup/deletegroup.component';
 import { AddusertogroupComponent } from './addusertogroup/addusertogroup.component';
@@ -35,6 +34,17 @@ import { UsergroupinfoComponent } from './usergroupinfo/usergroupinfo.component'
 import { FileComponent } from './file/file.component';
 import { DeletedirectoryComponent } from './deletedirectory/deletedirectory.component';
 import { GetdirectoryComponent } from './getdirectory/getdirectory.component';
+import { PermissionComponent } from './permission/permission.component';
+import { FilepermissionComponent } from './filepermission/filepermission.component';
+import { FolderpermissionComponent } from './folderpermission/folderpermission.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { UpdategroupComponent } from './updategroup/updategroup.component';
+import { UpdatedirectoryComponent } from './updatedirectory/updatedirectory.component';
+import { UpdatefilepermissionComponent } from './updatefilepermission/updatefilepermission.component';
+import { UpdatefolderpermissionComponent } from './updatefolderpermission/updatefolderpermission.component';
+import { DeletefileComponent } from './deletefile/deletefile.component';
+import { GetfileComponent } from './getfile/getfile.component';
+import { UpdatefileComponent } from './updatefile/updatefile.component';
 
 @NgModule({
   declarations: [
@@ -47,14 +57,24 @@ import { GetdirectoryComponent } from './getdirectory/getdirectory.component';
     GroupComponent,
     DirectoryComponent,
     GetuserComponent,
-    UserDialogComponent,
     GetgroupComponent,
     DeletegroupComponent,
     AddusertogroupComponent,
     UsergroupinfoComponent,
     FileComponent,
     DeletedirectoryComponent,
-    GetdirectoryComponent
+    GetdirectoryComponent,
+    PermissionComponent,
+    FilepermissionComponent,
+    FolderpermissionComponent,
+    UpdateuserComponent,
+    UpdategroupComponent,
+    UpdatedirectoryComponent,
+    UpdatefilepermissionComponent,
+    UpdatefolderpermissionComponent,
+    DeletefileComponent,
+    GetfileComponent,
+    UpdatefileComponent
   ],
   imports: [
     BrowserModule,

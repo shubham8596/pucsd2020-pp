@@ -15,6 +15,17 @@ import { UsergroupinfoComponent } from './usergroupinfo/usergroupinfo.component'
 import { FileComponent } from './file/file.component'; 
 import { GetdirectoryComponent } from './getdirectory/getdirectory.component';
 import { DeletedirectoryComponent } from './deletedirectory/deletedirectory.component';
+import { PermissionComponent } from './permission/permission.component';
+import { FilepermissionComponent } from './filepermission/filepermission.component';
+import { FolderpermissionComponent } from './folderpermission/folderpermission.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { UpdategroupComponent } from './updategroup/updategroup.component';
+import { UpdatedirectoryComponent } from './updatedirectory/updatedirectory.component';
+import { UpdatefilepermissionComponent } from './updatefilepermission/updatefilepermission.component';
+import { UpdatefolderpermissionComponent } from './updatefolderpermission/updatefolderpermission.component';
+import { DeletefileComponent } from './deletefile/deletefile.component';
+import { GetfileComponent } from './getfile/getfile.component';
+import { UpdatefileComponent } from './updatefile/updatefile.component';
 
 const routes: Routes = [
                         // { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,14 +37,24 @@ const routes: Routes = [
                         { path: 'group', component: GroupComponent },
                         { path: 'directory', component: DirectoryComponent },
                         { path: 'getuser', component: GetuserComponent },
+                        { path: 'updateuser', component: UpdateuserComponent },
                         { path: 'deletegroup', component: DeletegroupComponent },
+                        { path: 'updategroup', component: UpdategroupComponent },
                         { path: 'getgroup', component: GetgroupComponent },
                         { path: 'addusertogroup', component: AddusertogroupComponent },
                         { path: 'usergroupinfo', component: UsergroupinfoComponent},
                         { path: 'file', component: FileComponent},
                         { path: 'deletedirectory', component: DeletedirectoryComponent},
                         { path: 'getdirectory', component: GetdirectoryComponent},
-                        
+                        { path: 'updatedirectory', component: UpdatedirectoryComponent},
+                        { path: 'permission', component: PermissionComponent},
+                        { path: 'filepermission', component: FilepermissionComponent},
+                        { path: 'folderpermission', component: FolderpermissionComponent},
+                        { path: 'updatefilepermission', component: UpdatefilepermissionComponent},
+                        { path: 'updatefolderpermission', component: UpdatefolderpermissionComponent},
+                        { path: 'deletefile', component: DeletefileComponent},
+                        { path: 'getfile', component: GetfileComponent},
+                        { path: 'updatefile', component: UpdatefileComponent},
                       ];
 
 @NgModule({

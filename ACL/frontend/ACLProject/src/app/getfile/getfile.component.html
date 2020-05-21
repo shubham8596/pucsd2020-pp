@@ -1,0 +1,23 @@
+<app-userdetails></app-userdetails>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="file_id">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> File Id </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.file_id}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="file_name">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> File Name </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.file_name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="file_path">
+      <th mat-header-cell style="text-align: center;" *matHeaderCellDef> File Path </th>
+      <td mat-cell style="text-align: center;" *matCellDef="let element"> {{element.file_path}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  
