@@ -1,6 +1,6 @@
 ﻿<mat-toolbar color="primary">
 
-<button mat-button [matMenuTriggerFor]="menu">Admin</button>
+<button mat-button [matMenuTriggerFor]="menu" *ngIf="router.url==='/' || router.url==='/login' || router.url==='/createuser' || router.url==='/deleteuser' || router.url==='/updateuser' || router.url==='/updategroup' || router.url==='/getuser' || router.url==='/group' || router.url==='/deletegroup' || router.url==='/getgroup' || router.url==='/addusertogroup'">Admin</button>
 <mat-menu #menu="matMenu">
    <button mat-menu-item routerLink="/createuser">
       <span>Add User</span>

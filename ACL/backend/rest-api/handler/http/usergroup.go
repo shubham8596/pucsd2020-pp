@@ -35,6 +35,7 @@ func (usergroup *UserGroup) GetHTTPHandler() []*handler.HTTPHandler {
 	}
 }
 
+
 func (usergroup *UserGroup) GetByID(w http.ResponseWriter, r *http.Request) {
 	var usrgrp interface{}
 	id, err := strconv.ParseInt(chi.URLParam(r, "u_id"), 10, 64)
@@ -49,7 +50,13 @@ func (usergroup *UserGroup) GetByID(w http.ResponseWriter, r *http.Request) {
 
 	handler.WriteJSONResponse(w, r, usrgrp, http.StatusOK, err)
 }
-
+/*
+func (usergroup *UserGroup) GetByID(w http.ResponseWriter, r *http.Request) {
+	gid, err := strconv.ParseInt(chi.URLParam(r, "u_id"), 10, 64)
+	grp, err := usergroup.repo.GetUsersByGroup(r.Context(), gid)
+	handler.WriteJSONResponse(w, r, grp, http.StatusOK, err)
+}
+*/
 func (usergroup *UserGroup) Create(w http.ResponseWriter, r *http.Request) {
 	var usrgrp model.UserGroup
 	err := json.NewDecoder(r.Body).Decode(&usrgrp)

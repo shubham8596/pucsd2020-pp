@@ -4,8 +4,6 @@ import { DataService } from '../data.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
@@ -40,8 +38,7 @@ export class LoginComponent implements OnInit {
    u_password = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]);
   
    ngOnInit() {
-   // this.createFormValidations();
-    this.dataService.sendGetRequest().subscribe((data:{})=>
+   this.dataService.sendGetRequest().subscribe((data:{})=>
     {
       this.getUserdata(data)
     })
@@ -51,7 +48,6 @@ export class LoginComponent implements OnInit {
   getUserdata(data)
   {
       let array=Object.values(data.data);
-     // console.log(array);
       let MArray = [];
       for(var i=0;i<array.length;i++)
       {

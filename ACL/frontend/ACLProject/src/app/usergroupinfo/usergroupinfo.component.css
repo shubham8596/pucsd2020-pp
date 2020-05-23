@@ -12,6 +12,15 @@ table {
   margin-left: 40%;
   width: 20%;
 }
+
+.home-full-width {
+	margin-top: 0px;
+	margin-left: 450px;
+	width: 15%;
+  }
+  table1 {
+	width: 100%;
+  }
 /* 
 .mat-form-field {
   font-size: 14px;

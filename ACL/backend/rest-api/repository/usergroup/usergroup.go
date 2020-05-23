@@ -20,7 +20,12 @@ func (usergroup *usergroupRepository) GetByID(cntx context.Context, id int64) (i
 	obj := new(model.UserGroup)
 	return driver.GetById(usergroup.conn, obj, id)
 }
-
+/*
+func (usergroup *usergroupRepository) GetUsersByGroup(cntx context.Context, gid int64) ([] interface{}, error) {
+	obj := &model.UserGroup{}
+	return driver.GetUsersByGroup(usergroup.conn, obj, gid)
+}
+*/
 func (usergroup *usergroupRepository) Create(cntx context.Context, obj interface{}) (interface{}, error) {
 	// usr := obj.(*model.User)
 	usrgrp := obj.(model.UserGroup)

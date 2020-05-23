@@ -34,3 +34,4 @@ func (repo *Repository) Delete(cntx context.Context, id int64) (deleted bool, er
 func (repo *Repository) GetAll(cntx context.Context) (obj []interface{}, err error) {
 	return
 }
+
